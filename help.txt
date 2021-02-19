@@ -1,0 +1,50 @@
+Background:https://opengameart.org/content/trees-bushes
+https://opengameart.org/content/lpc-snowy-tree
+
+How to use:
+The first must be an original translation file, example build.prop and the second must be the file of the language you want to translate as Portuguese, Spanish, Chinese etc ..., and the files must be utf-8 to perform everything normal
+
+bugs: on low power devices, you can crash with very large files,
+if he doesn't want to read the files or the progress bar has stopped in the middle, it's because the browser has stopped running the script (I mean, if you want to run an extremely large file with millions of lines)
+
+如何使用：
+第一個必須是原始翻譯文件，例如build.prop，第二個必須是要翻譯為葡萄牙語，西班牙語，中文等的語言文件，並且文件必須是utf-8才能正常執行所有操作
+
+錯誤：在低功耗設備上，您可能會因為文件過大而崩潰，
+如果他不想讀取文件或進度條在中間停止，那是因為瀏覽器已停止運行腳本（我的意思是，如果您要運行包含數百萬行的超大文件）
+
+Como usar:
+O primeiro deve ser um arquivo de tradução original, exemplo build.prop e o segundo deve ser o arquivo do idioma que você deseja traduzir como português, espanhol, chinês etc ..., e os arquivos devem ser utf-8 para executar tudo normal
+
+bugs: em dispositivos de de baixa potencia, você pode travar com arquivos muito grandes,
+se ele não quiser ler os arquivos ou a barra de progresso parou no meio, é porque o navegador parou de executar o script (quero dizer, se você quiser executar um arquivo extremamente grande com milhões de linhas)
+
+Cómo usar:
+El primero debe ser un archivo de traducción original, ejemplo build.prop y el segundo debe ser el archivo del idioma que quieres traducir como portugués, español, chino etc ..., y los archivos deben ser utf-8 para realizar todo lo normal
+
+errores: en dispositivos de baja potencia, puede bloquearse con archivos muy grandes,
+si no quiere leer los archivos o la barra de progreso se ha detenido en el medio, es porque el navegador ha dejado de ejecutar el script (quiero decir, si desea ejecutar un archivo extremadamente grande con millones de líneas) 
+
+Comment utiliser:
+Le premier doit être un fichier de traduction original, par exemple build.prop et le second doit être le fichier de la langue que vous souhaitez traduire en portugais, espagnol, chinois, etc., et les fichiers doivent être utf-8 pour tout faire normalement
+
+bogues: sur les appareils à faible consommation, vous pouvez planter avec des fichiers très volumineux,
+s'il ne veut pas lire les fichiers ou que la barre de progression s'est arrêtée au milieu, c'est parce que le navigateur a arrêté d'exécuter le script (je veux dire, si vous voulez exécuter un fichier extrêmement volumineux avec des millions de lignes) 
+
+कैसे इस्तेमाल करे:
+पहला एक मूल अनुवाद फ़ाइल होना चाहिए, उदाहरण build.prop और दूसरा उस भाषा की फ़ाइल होना चाहिए जिसे आप पुर्तगाली, स्पेनिश, चीनी आदि के रूप में अनुवाद करना चाहते हैं ... और सब कुछ सामान्य करने के लिए फ़ाइलें utf-8 होनी चाहिए
+
+बग: कम बिजली उपकरणों पर, आप बहुत बड़ी फ़ाइलों के साथ क्रैश कर सकते हैं,
+यदि वह फ़ाइलों को पढ़ना नहीं चाहता है या प्रगति पट्टी बीच में बंद हो गई है, तो यह इसलिए है क्योंकि ब्राउज़र ने स्क्रिप्ट चलाना बंद कर दिया है (मेरा मतलब है, यदि आप लाखों लाइनों के साथ एक बहुत बड़ी फ़ाइल चलाना चाहते हैं)
+
+Как пользоваться:
+Первый должен быть оригинальным файлом перевода, например build.prop, а второй должен быть файлом языка, который вы хотите перевести как португальский, испанский, китайский и т. Д., И файлы должны иметь формат utf-8, чтобы все выполнялось нормально.
+
+ошибки: на устройствах с низким энергопотреблением вы можете вылетать с очень большими файлами,
+если он не хочет читать файлы или индикатор выполнения остановился посередине, это потому, что браузер перестал запускать скрипт (я имею в виду, если вы хотите запустить очень большой файл с миллионами строк) 
+
+كيف تستعمل:
+يجب أن يكون الأول ملف ترجمة أصلي ، مثال build.prop والثاني يجب أن يكون ملف اللغة التي تريد ترجمتها إلى البرتغالية والإسبانية والصينية إلخ ... ، ويجب أن تكون الملفات utf-8 لأداء كل شيء عادي
+
+الأخطاء: في الأجهزة منخفضة الطاقة ، يمكنك التعطل مع الملفات الكبيرة جدًا ،
+إذا كان لا يريد قراءة الملفات أو توقف شريط التقدم في المنتصف ، فذلك لأن المتصفح توقف عن تشغيل البرنامج النصي (أعني ، إذا كنت تريد تشغيل ملف كبير للغاية به ملايين الأسطر)

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="icon" type="imagem/png" href="images/icon.png" />
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tools for bundle</title>
+</head>
+<style type="text/css">
+	body{
+		
+	}
+
+	#tabela{
+		margin-top: 10px;
+		height: 400px;
+		border: 1px solid;
+		overflow: auto;
+	}
+	#tabela div {
+		font-size: 15px;
+		line-height: .5;
+		height: 15px;
+		padding: 5px;
+		transition: 0.2s;
+		margin: auto;
+	}
+	#tabela div:hover{
+		background-color: red;
+	}
+	.form{
+		margin: auto;
+		text-align: center;
+		max-width: 400px;
+		padding: 5px;
+		background: rgba(0, 0, 0, 0.7);
+		color: white;
+	}
+	.form input{
+		display: inline-block;
+		margin: 4px;
+		padding: 10px;
+	}
+	.form #arquivo,#arquivo2{
+		
+		background: #003300;
+		color: white;
+		border:none;
+	}
+	.form #arquivo:hover,#arquivo2:hover{
+		background: black;
+	}
+	#tabela ol{
+		font-size: 15px;
+		background: #999966;
+		
+		margin: 0px;
+	}
+	#tabela ol li{
+		background: white;
+		transition: 0.1s;
+		padding: 5px;
+		border: 1px black outset;
+	}
+	#tabela ol li:hover{
+		color: white;
+		background: #003300;
+		font-weight: bold;
+	}
+	.imcomode:hover{
+		background: black;
+	}
+
+	.red{
+		background-color: darkred;
+		color: white;
+		border:none;
+		cursor: not-allowed;
+	}
+	.red:hover{
+		background-color: black;
+		opacity: 0.5;
+	}
+	.green{
+		background-color: #003300;
+		color: white;
+		border:none;
+	}
+	.green:hover{
+		background-color: black;
+	}
+	.future{
+		background-color: cyan;
+
+	}
+	.test{
+		visibility: hidden;
+		position: absolute;
+	}
+	.blocke{
+		display: inline-flex;
+		max-width: 150px;
+		flex-wrap: wrap;
+		flex-flow: column;
+		
+	}
+	@keyframes brilho{
+	0%{
+		background-color: #003300;
+		}
+	50%{
+		background-color: red;
+		}
+	100%{
+		background-color: blue;
+		}
+	}
+	#help:hover{
+		background-color: red;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+		animation-name: brilho;
+		animation-duration: 10s;
+	}
+
+
+</style>
+
+<body>
+<div id="tudo">
+	<div class="form">
+		<label for="arquivo">bundle original.prop</label>
+		<input type="file" id="arquivo" /><br>
+		<label for="arquivo">bundle pt,es,fr, etc..</label>
+		<input type="file" id="arquivo2" />
+		<div class="blocke">
+			<input class="green" type="button"  id="botaowarn" name="" title="Compare and show on page" value="Compare and Show" onclick="func()" >
+			<input class="green" type="button" id="botaowarn" title="replace lines from the original file with lines from the second file" value="Replace Show" onclick="compareAndReplace(true)">
+			<input class="green" type="button" id="botaowarn" title="Sort only the first file alphabetically by removing empty lines" value="Sort and show" onclick="sortaz(true)">
+		</div>
+		<div class="blocke">
+			<input class="green" type="button" id="botaowarn" title="Compare and download text file" value="Compare & Get txt" onclick="saveintxt()">
+			<input class="green" type="button" id="botaowarn" title="replace lines from the original file with lines from the second file" value="Replace & get txt" onclick="compareAndReplace()">
+			<input class="green" type="button" id="botaowarn" title="Sort only the first file alphabetically by removing empty lines" value="Sort a-z first file" onclick="sortaz()">
+		</div>
+		
+		<br>
+		<a href="help.txt" target="_blank"><input type="button" value="More" class="green" id="help" ></a>
+		<span id="log"></span><br>
+		<progress id="progress" value="0" max="100"> 32% </progress>
+
+	</div>
+	<div id="tabela">
+		<ol id="ol">
+
+		</ol>
+	</div>
+</div>
+
+</body>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.min.js "></script>
+<script type="text/javascript" src="fs.js"></script>
+<script type="text/javascript" src="saveInTXT.js"></script>
+<script type="text/javascript" src="sortazfile.js"></script>
+<script type="text/javascript">
+document.body.style.background = "url(images/background/"+Math.floor(Math.random()*5)+".png)"
+let tabela = document.getElementById("tabela")
+let ol = document.getElementById('ol')
+let formone = new Array()
+let formtwo = ""
+let log = document.getElementById("log")
+let progress = document.getElementById("progress")
+	function func(){
+		
+		doc = document.getElementById('arquivo').files[0]
+		doc2 = document.getElementById('arquivo2').files[0]
+		if (!(doc && doc2)) {
+			//se doc1 e doc2 estiver faltando, os dois resultados tem que dar verdadeiro e sao convertudos para false
+			log.innerHTML="Files are missing"
+			console.log("Está faltando arquivos")
+			return 0
+		}
+
+
+		ol.innerHTML=""
+
+		disableinput(true)
+		doc = document.getElementById('arquivo').files[0]
+		console.log("enviado")
+		if (doc) {
+	 	  	var reader = new FileReader();
+		    reader.readAsText(doc, "UTF-8");
+		    reader.onload = function (evt) {
+	        formone = evt.target.result.split("\n");
+	        console.log("documento 1 carregado!")
+	        log.innerHTML="Loaded first file"
+	        progress.value+=25
+	        compare()
+	    	}
+		    reader.onerror = function (evt) {
+	        document.getElementById("fileContents").innerHTML = "error reading doc";
+	    	}
+		}
+		if (doc2) {
+	 	  	var reader = new FileReader();
+		    reader.readAsText(doc2, "UTF-8");
+		    reader.onload = function (evt) {
+	        formtwo = evt.target.result
+	    	console.log("documento 2 carregado!")
+	    	log.innerHTML="Loaded Secound file"
+	    	progress.value+=25
+	    	compare()
+	    	}
+		    reader.onerror = function (evt) {
+	        document.getElementById("fileContents").innerHTML = "error reading doc";
+	    	}
+		}
+		console.log("Posted")
+		console.log(formone.length,formtwo.length)
+		return 1
+}
+let naopare = []
+function compare(){
+	if (formone==0 || formtwo==0) {
+		return 0
+	}
+
+	console.log('Dois arquivos prontos!')
+	progress.max = formone.length
+	naopare = []
+	let re = new RegExp(/=.+/i);
+	log.innerHTML="Comparing files"
+
+	for (f in formone){
+		
+		one = formone[f].replace(re,"").replace(/\s/g, '')
+		if (formtwo.indexOf(one) >=0) {
+			console.log(f)
+			console.log("Foi maior que zero")
+			//arraycompare.push(one)
+		}else{
+			//console.log(`Não achou, de ${one} no ${0}`)
+			naopare.push(formone[f])
+			
+		}
+		prosseguir(f)
+		
+	}
+	adddom()
+	
+}
+function adddom(){
+	log.innerHTML="Adding to the list"
+	let adicionardom = ""
+	for(i in naopare){
+		adicionardom+="<li>"+naopare[i]+"</li>"
+	}
+	ol.innerHTML= adicionardom
+	log.innerHTML=`Sucess, ${naopare.length} lines for transition`
+	disableinput(false)
+
+}
+function prosseguir(valor){
+	var id = setInterval(frame, 1);
+	  function frame() {
+      progress.value=valor
+      clearInterval(id);
+    }
+}
+var botaowarn = document.querySelectorAll("#botaowarn") 
+console.log(botaowarn)
+
+
+//disableinput(true)
+
+
+function disableinput(chave=false) {
+	if (chave){
+		console.log('foi verdadeiro')
+		for(var i = 0; i < botaowarn.length; i++){
+			botaowarn[i].className="red"
+			botaowarn[i].disabled=true
+			}
+	}else{
+		for(var i = 0; i < botaowarn.length; i++){
+			habilitar(i)
+			}
+		function habilitar(i) {
+		  setTimeout(() => {
+		    botaowarn[i].className="green"
+			botaowarn[i].disabled=false
+		  }, 1000);
+		}
+	}
+}
+
+</script>
+<script type="text/javascript" src="checkupdates.js"></script>
+<script type="text/javascript" src="compare-and-replace.js"></script>
+</html>
