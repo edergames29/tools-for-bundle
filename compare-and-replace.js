@@ -109,7 +109,7 @@ function adddomtest(arr){
 	}
 	ol.innerHTML= adicionardom
 	progress.value = 100
-	log.innerHTML=`Sucess, ${adicionardom.length} lines!`
+	log.innerHTML=`Sucess, ${formone.length} lines!`
 	disableinput(false)
 
 }
