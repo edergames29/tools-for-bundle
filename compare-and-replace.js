@@ -51,7 +51,8 @@ function compareReplaceAlg(){
 	}
 	comparedReplaced = []
 	console.log('Dois arquivos prontos!')
-	progress.max = formone.length
+	progress.value = 0
+	progress.max = 100
 
 	let re = new RegExp(/=.+/i);
 	for(f in formone){
@@ -107,7 +108,8 @@ function adddomtest(arr){
 		adicionardom+="<li>"+arr[i]+"</li>"
 	}
 	ol.innerHTML= adicionardom
-	log.innerHTML=`Sucess, ${naopare.length} lines for transition`
+	progress.value = 100
+	log.innerHTML=`Sucess, ${adicionardom.length} lines!`
 	disableinput(false)
 
 }
