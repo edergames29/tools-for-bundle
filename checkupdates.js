@@ -18,10 +18,7 @@ function check(argument) {
 		log.innerHTML="Need secound file missing"
 		return 1
 	}
-	if (log.innerHTML != "Files missing") {
-		log.innerHTML="Files missing"
-	}
-	console.log("files misson")
+	console.log("Files missing")
 	botaowarn[0].className= "red"
 	botaowarn[1].className= "red"
 	botaowarn[2].className= "red"
@@ -29,5 +26,5 @@ function check(argument) {
 	botaowarn[4].className= "red"
 	botaowarn[5].className= "red"
 }
-
+log.innerHTML="Files missing"
 var ck = setInterval(check,1000)
