@@ -18,8 +18,10 @@ function check(argument) {
 		log.innerHTML="Need secound file missing"
 		return 1
 	}
+	if (log.innerHTML != "Files missing") {
+		log.innerHTML="Files missing"
+	}
 	console.log("files misson")
-	log.innerHTML="Files missing"
 	botaowarn[0].className= "red"
 	botaowarn[1].className= "red"
 	botaowarn[2].className= "red"
